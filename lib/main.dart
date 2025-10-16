@@ -16,20 +16,12 @@ class App extends StatelessWidget {
       title: 'Sandwich Shop App',
       home: Scaffold(
         appBar: AppBar(title: const Text('Sandwich Counter')),
-        body: const Center(
-          child: 
-          @override
-          Widget build(BuildContext context) {
-            return MaterialApp(
-              title: 'Sandwich Shop App',
-              home: Scaffold(
-                appBar: AppBar(title: const Text('Sandwich Counter')),
-                body: const Center(
-                  child: OrderItemDisplay(5, 'Footlong'),
-                ),
-              ),
-            );
-          },
+        body: Center(
+            child: Container(
+            color: Colors.blue,
+            padding: const EdgeInsets.all(80.0),
+            child: const OrderItemDisplay(5, 'Footlong'),
+            ),
         ),
       ),
     );
