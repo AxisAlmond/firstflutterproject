@@ -54,6 +54,7 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
+  bool ThisSwitch = true;
 
   void _increaseQuantity() {
     if (_quantity < widget.maxQuantity) {
@@ -77,6 +78,16 @@ class _OrderScreenState extends State<OrderScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Switch(
+              value: ThisSwitch,
+              activeThumbColor: Colors.green,
+              onChanged: (bool value) {
+                // This is called when the user toggles the switch.
+                setState(() {
+                  ThisSwitch = value;
+                });
+              },
+            ),
             OrderItemDisplay(
               _quantity,
               'Footlong',
@@ -87,14 +98,16 @@ class _OrderScreenState extends State<OrderScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: StyledButton(
-                    text: "Add", 
-                    onPressed: _quantity < widget.maxQuantity ? _increaseQuantity : null),
+                      text: "Add",
+                      onPressed: _quantity < widget.maxQuantity
+                          ? _increaseQuantity
+                          : null),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: StyledButton(
-                    text: "Remove", 
-                    onPressed: _quantity > 0 ? _decreaseQuantity : null),
+                      text: "Remove",
+                      onPressed: _quantity > 0 ? _decreaseQuantity : null),
                 ),
               ],
             ),
