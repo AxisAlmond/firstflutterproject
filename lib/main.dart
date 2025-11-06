@@ -18,6 +18,29 @@ class App extends StatelessWidget {
   }
 }
 
+class StyledButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed; //Instance variables for class
+
+  const StyledButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  }); //Constructor
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.redAccent,
+        foregroundColor: Colors.black,
+      ),
+      child: Text(text),
+    );
+  }
+}
+
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;
 
@@ -61,13 +84,13 @@ class _OrderScreenState extends State<OrderScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: _increaseQuantity,
-                  child: const Text('Add'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: StyledButton(text: "Add", onPressed: _increaseQuantity,),
                 ),
-                ElevatedButton(
-                  onPressed: _decreaseQuantity,
-                  child: const Text('Remove'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: StyledButton(text: "Remove", onPressed: _decreaseQuantity,),
                 ),
               ],
             ),
