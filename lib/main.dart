@@ -4,8 +4,7 @@ void main() {
   runApp(const App());
 }
 
-  // runApp(const MyApp());
-
+// runApp(const MyApp());
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -15,24 +14,28 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Sandwich Shop App',
       home: Scaffold(
-        appBar: AppBar(title: const Text('Sandwich Counter')),
-        body: Center(
-          child: Container(
-        padding: const EdgeInsets.all(80.0),
-        color: Colors.blue,
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            OrderItemDisplay(3, 'BLT'),
-            SizedBox(width: 8),
-            OrderItemDisplay(5, 'Club'),
-            SizedBox(width: 8),
-            OrderItemDisplay(2, 'Veggie'),
-          ],
-        ),
-          ),
-        ),
-      ),
+          appBar: AppBar(title: const Text('Sandwich Counter')),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const OrderItemDisplay(5, 'Footlong'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => print('Add button pressed!'),
+                      child: const Text('Add'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => print('Remove button pressed!'),
+                      child: const Text('Remove'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )),
     );
   }
 }
