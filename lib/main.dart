@@ -78,19 +78,26 @@ class _OrderScreenState extends State<OrderScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Switch(
-              value: ThisSwitch,
-              activeThumbColor: Colors.green,
-              onChanged: (bool value) {
-                // This is called when the user toggles the switch.
-                setState(() {
-                  ThisSwitch = value;
-                });
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Footlong Sandwiches'),
+                Switch(
+                  value: ThisSwitch,
+                  activeThumbColor: Colors.green,
+                  onChanged: (bool value) {
+                    // This is called when the user toggles the switch.
+                    setState(() {
+                      ThisSwitch = value;
+                    });
+                  },
+                ),
+                Text('Six Inch Sandwiches'),
+              ],
             ),
             OrderItemDisplay(
               _quantity,
-              'Footlong',
+              ThisSwitch == true ? 'Six Inch' : 'Footlong' ,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
