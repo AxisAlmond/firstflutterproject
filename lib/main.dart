@@ -20,12 +20,12 @@ class App extends StatelessWidget {
 
 class StyledButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed; //Instance variables for class
+  final VoidCallback? onPressed; //Instance variables for class
 
   const StyledButton({
     super.key,
     required this.text,
-    required this.onPressed,
+    this.onPressed,
   }); //Constructor
 
   @override
@@ -86,11 +86,15 @@ class _OrderScreenState extends State<OrderScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: StyledButton(text: "Add", onPressed: _increaseQuantity,),
+                  child: StyledButton(
+                    text: "Add", 
+                    onPressed: _quantity < widget.maxQuantity ? _increaseQuantity : null),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: StyledButton(text: "Remove", onPressed: _decreaseQuantity,),
+                  child: StyledButton(
+                    text: "Remove", 
+                    onPressed: _quantity > 0 ? _decreaseQuantity : null),
                 ),
               ],
             ),
