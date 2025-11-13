@@ -120,7 +120,14 @@ class _OrderScreenState extends State<OrderScreen> {
               breadType: _selectedBreadType,
               orderNote: noteForDisplay,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 12),
+            Builder(
+              builder: (context) {
+                final int totalPrice = PricingRepository().calculate(_orderRepository.quantity, _isFootlong);
+                return Text('Total: \$${totalPrice}', style: normalText);
+              },
+            ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
