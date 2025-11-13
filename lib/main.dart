@@ -132,6 +132,19 @@ class _OrderScreenState extends State<OrderScreen> {
                 const Text('footlong', style: normalText),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('untoasted', style: normalText),
+                Switch(
+                  value: _isToasted,
+                  onChanged: (value) {
+                    setState(() => _isToasted = value);
+                  },
+                ),
+                const Text('toasted', style: normalText),
+              ],
+            ),
             const SizedBox(height: 10),
             DropdownMenu<BreadType>(
               textStyle: normalText,
