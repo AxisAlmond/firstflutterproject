@@ -169,16 +169,15 @@ void main() {
     });
   });
 
-
-
   testWidgets('shows switch is toggleable between footlong and six-inch',
-    (WidgetTester tester) async {
+      (WidgetTester tester) async {
+    const testKey = Key('Length');
     await tester.pumpWidget(const App());
     expect(find.text('0 white footlong sandwich(es): '), findsOneWidget);
-    await tester.tap(find.byType(Switch));
+    await tester.tap(find.byKey(testKey));
     await tester.pump();
     expect(find.text('0 white six-inch sandwich(es): '), findsOneWidget);
-    await tester.tap(find.byType(Switch));
+    await tester.tap(find.byKey(testKey));
     await tester.pump();
     expect(find.text('0 white footlong sandwich(es): '), findsOneWidget);
   });
