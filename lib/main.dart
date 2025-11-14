@@ -124,7 +124,7 @@ class _OrderScreenState extends State<OrderScreen> {
             Builder(
               builder: (context) {
                 final int totalPrice = PricingRepository().calculate(_orderRepository.quantity, _isFootlong);
-                return Text('Total: \$${totalPrice}', style: normalText);
+                return Text('Total: \$$totalPrice', style: normalText);
               },
             ),
             const SizedBox(height: 8),
