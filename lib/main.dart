@@ -1,5 +1,6 @@
 import 'package:sandwich_shop/views/app_styles.dart';
 import 'package:sandwich_shop/repositories/order_repository.dart';
+import 'package:sandwich_shop/repositories/pricing_repository.dart';
 import 'package:flutter/material.dart';
 
 enum BreadType { white, wheat, wholemeal }
@@ -148,6 +149,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   value: _isToasted,
                   onChanged: (value) {
                     setState(() => _isToasted = value);
+                    // ignore: unused_label
                     key: const ValueKey('Toasted');
                   },
                 ),
