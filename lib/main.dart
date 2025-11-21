@@ -148,6 +148,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   value: _isToasted,
                   onChanged: (value) {
                     setState(() => _isToasted = value);
+                    key: const ValueKey('Toasted');
                   },
                 ),
                 const Text('toasted', style: normalText),
