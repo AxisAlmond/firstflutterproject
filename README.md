@@ -75,16 +75,6 @@ Ensure you have the following installed:
    cd sandwich_shop
    ```
 
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Verify your Flutter setup**
-   ```bash
-   flutter doctor
-   ```
-
 ### Running the App
 
 **Web Browser (Recommended)**
@@ -128,35 +118,6 @@ Run widget tests:
 flutter test test/views/widget_test.dart
 ```
 
-### Code Analysis
-
-Check for code quality issues:
-```bash
-flutter analyze
-```
-
-### Code Formatting
-
-Format all Dart files:
-```bash
-dart format lib/ test/
-```
-
-## Known Issues & Limitations
-
-### 🐛 Identified Bugs
-
-1. **Notes TextField Key Issue** – The notes input field has a hardcoded test key (`notes_textfield`), which could conflict if the widget is tested programmatically. Consider removing this key unless it's specifically needed for testing.
-
-2. **Missing Error Handling** – The app lacks error handling for edge cases:
-   - No validation for very long notes (could overflow UI)
-   - No handling for rapid button mashing on increment/decrement
-   - No persistence mechanism (data is lost on app restart)
-
-3. **Dropdown Initialization** – The `DropdownMenu` rebuilds the entries list on every build cycle via `_buildDropdownEntries()`. Consider making this a constant for performance.
-
-4. **Hardcoded maxQuantity Parameter** – The `OrderScreen` hardcodes `maxQuantity: 5` in `main()` but accepts it as a parameter. This creates inconsistency. Should either remove the parameter or use it directly.
-
 ### ⚠️ Limitations
 
 - **No data persistence** – Orders are not saved to local storage or a backend
@@ -173,17 +134,7 @@ dart format lib/ test/
 
 ## Dependencies
 
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  cupertino_icons: ^1.0.0
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
-```
+See pubspec.yaml
 
 Minimal dependencies ensure quick load times and easy maintenance. No external state management or HTTP packages are required.
 
